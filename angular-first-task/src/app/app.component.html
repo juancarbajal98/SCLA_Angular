@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+
+  <!-- div 1 -->
+  <div> 
+
+    <!-- name -->
+    <p>Juan Carbajal</p>
+
+    <!-- background picture -->
+    <img src = "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" width = "1250" height = "550" alt ="seven"/> 
+
+  </div>
+
+  <div class="container-fluid" id="no-padding"></div>
+
+  <div class="row">
+  <!-- div 2 -->
+  <div>
+
+    <!-- form title -->
+    <div class="col-6" >
+        <h1 class="center">Add New Blog</h1>
+        <!-- form goes here -->
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" id="form">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Title</label>
+            <input type="text" class="form-control" formControlName="title" name="title">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Content</label>
+            <textarea type="text" class="form-control" formControlName="content" name="content"> </textarea>
+          </div>
+  
+          <button type="submit" class="btn btn-primary"> Submit </button>
+        </form>
+    </div>
+
+    <div class="col-6">
+        <!-- ng for goes here -->
+        <!-- this is your list of blogs being printed it updates because of two way data binding -->
+        <div *ngFor="let blog of blogs">
+          <h1>{{blog.title}}</h1>
+          <p>{{blog.content}}</p>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+
+
+  </body>
+</html>
